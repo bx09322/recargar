@@ -67,7 +67,6 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
 }
 
-/* Screen Transitions */
 .screen {
     display: none !important;
     min-height: 100vh;
@@ -89,10 +88,6 @@ h1, h2, h3, h4, h5, h6 {
 #loginScreen.active {
     display: flex !important;
 }
-
-/* ===========================================
-   LOGIN SCREEN
-=========================================== */
 
 #loginScreen {
     position: relative;
@@ -268,7 +263,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
-/* Form Styles */
 .login-form {
     display: flex;
     flex-direction: column;
@@ -394,7 +388,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-light);
 }
 
-/* Buttons */
 .btn-primary {
     display: flex;
     align-items: center;
@@ -465,7 +458,6 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Social Login */
 .social-login {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -519,7 +511,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-light);
 }
 
-/* Login Features */
 .login-features {
     display: flex;
     justify-content: space-around;
@@ -545,10 +536,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 24px;
     color: var(--accent);
 }
-
-/* ===========================================
-   DASHBOARD SCREEN
-=========================================== */
 
 .dashboard-header {
     background: rgba(45, 53, 72, 0.8);
@@ -680,7 +667,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 18px;
 }
 
-/* Dashboard Main */
 .dashboard-main {
     min-height: calc(100vh - 80px);
     background: 
@@ -727,7 +713,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.125rem;
 }
 
-/* Services Grid */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -888,7 +873,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 18px;
 }
 
-/* Payment Methods */
 .payment-methods {
     background: rgba(45, 53, 72, 0.6);
     backdrop-filter: blur(10px);
@@ -927,10 +911,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 32px;
     color: var(--text-secondary);
 }
-
-/* ===========================================
-   MODAL
-=========================================== */
 
 .modal {
     display: none;
@@ -1033,7 +1013,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
 }
 
-/* Recharge Form */
 .recharge-form {
     display: flex;
     flex-direction: column;
@@ -1152,10 +1131,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: var(--spacing-sm);
 }
 
-/* ===========================================
-   TOAST
-=========================================== */
-
 .toast {
     position: fixed;
     bottom: var(--spacing-lg);
@@ -1186,10 +1161,6 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--primary);
     box-shadow: var(--shadow-glow);
 }
-
-/* ===========================================
-   PASARELA DE PAGO
-=========================================== */
 
 .payment-gateway-content {
     max-width: 480px;
@@ -1274,7 +1245,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: var(--spacing-sm);
     background: rgba(0, 168, 89, 0.05);
     border: 1px solid rgba(0, 168, 89, 0.2);
-    border-radius: var(--spacing-sm);
+    border-radius: var(--radius-sm);
     color: var(--text-tertiary);
     font-size: 0.75rem;
     text-align: center;
@@ -1286,10 +1257,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--accent);
     flex-shrink: 0;
 }
-
-/* ===========================================
-   RESPONSIVE
-=========================================== */
 
 @media (max-width: 768px) {
     .login-container {
@@ -1363,7 +1330,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 8px;
 }
