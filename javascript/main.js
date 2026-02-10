@@ -61,7 +61,7 @@
             name: 'DirecTV',
             logoClass: 'directv-logo',
             gradient: 'linear-gradient(135deg, #0057A3, #337DB8)',
-            inputLabel: 'Número de cliente DirecTV',
+            inputLabel: 'Número de cliente',
             inputPlaceholder: 'Ej: 12345678',
             inputType: 'text',
             inputIcon: 'user'
@@ -70,7 +70,7 @@
             name: 'Antina',
             logoClass: 'antina-logo',
             gradient: 'linear-gradient(135deg, #FF6B00, #FF8833)',
-            inputLabel: 'Número de cuenta Antina',
+            inputLabel: 'Número de cuenta',
             inputPlaceholder: 'Ej: 987654321',
             inputType: 'text',
             inputIcon: 'user'
@@ -340,12 +340,12 @@
         const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
         
         if (!serviceValue || serviceValue.length < 6) {
-            showToast('Ingresa un número válido', 'error');
+            showToast('Ingresá un número válido', 'error');
             return;
         }
         
         if (!appState.selectedAmount || appState.selectedAmount <= 0) {
-            showToast('Selecciona un monto válido', 'error');
+            showToast('Seleccioná un monto válido', 'error');
             return;
         }
         
@@ -501,7 +501,7 @@
         }
         
         if (!/^\d{2}\/\d{2}$/.test(expiryDate)) {
-            showToast('Fecha de expiración inválida', 'error');
+            showToast('Fecha de vencimiento inválida', 'error');
             return;
         }
         
@@ -530,7 +530,7 @@
             closePaymentGateway();
             
             showToast(
-                `¡Pago exitoso! ${service.name} - $${total} procesados`,
+                `¡Pago exitoso! ${service.name} - $${total}`,
                 'success'
             );
             
@@ -565,7 +565,7 @@
         }
         
         // Procesar pago
-        showToast('Procesando pago con billetera...', 'success');
+        showToast('Procesando pago...', 'success');
         
         setTimeout(() => {
             const { total } = calculateTotal(appState.selectedAmount);
@@ -574,7 +574,7 @@
             closeWalletGateway();
             
             showToast(
-                `¡Pago exitoso! ${service.name} - $${total} con billetera virtual`,
+                `¡Pago exitoso! ${service.name} - $${total}`,
                 'success'
             );
             
@@ -615,7 +615,7 @@
         }
         
         // Procesar pago
-        showToast('Procesando transferencia bancaria...', 'success');
+        showToast('Procesando transferencia...', 'success');
         
         setTimeout(() => {
             const { total } = calculateTotal(appState.selectedAmount);
@@ -624,7 +624,7 @@
             closeBankGateway();
             
             showToast(
-                `¡Transferencia exitosa! ${service.name} - $${total} procesados`,
+                `¡Transferencia exitosa! ${service.name} - $${total}`,
                 'success'
             );
             
@@ -636,30 +636,6 @@
     // ===========================================
     // EFECTOS Y ANIMACIONES
     // ===========================================
-
-    function createRipple(event) {
-        const button = event.currentTarget;
-        
-        // Remover ripples anteriores
-        const existingRipples = button.querySelectorAll('.ripple');
-        existingRipples.forEach(ripple => ripple.remove());
-        
-        const circle = document.createElement('span');
-        const diameter = Math.max(button.clientWidth, button.clientHeight);
-        const radius = diameter / 2;
-        
-        circle.style.width = circle.style.height = `${diameter}px`;
-        circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
-        circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
-        circle.classList.add('ripple');
-        
-        button.appendChild(circle);
-        
-        // Remover el ripple después de la animación
-        setTimeout(() => {
-            circle.remove();
-        }, 600);
-    }
 
     function handleMouseMove(e) {
         if (!elements || !elements.loginScreen.classList.contains('active')) return;
@@ -678,13 +654,6 @@
     }
 
     function handleKeyboardShortcuts(e) {
-        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-            e.preventDefault();
-            if (elements.dashboardScreen.classList.contains('active')) {
-                showToast('Función de búsqueda próximamente', 'error');
-            }
-        }
-        
         if ((e.ctrlKey || e.metaKey) && e.key === 'l') {
             e.preventDefault();
             if (elements.dashboardScreen.classList.contains('active')) {
@@ -880,26 +849,20 @@
         document.querySelectorAll('.btn-social').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                showToast('Función de inicio de sesión social próximamente', 'error');
+                showToast('Próximamente disponible', 'error');
             });
         });
         
         // Links
         document.querySelector('.signup-link a')?.addEventListener('click', (e) => {
             e.preventDefault();
-            showToast('Función de registro próximamente', 'error');
+            showToast('Próximamente disponible', 'error');
         });
         
         document.querySelector('.forgot-link')?.addEventListener('click', (e) => {
             e.preventDefault();
-            showToast('Función de recuperación de contraseña próximamente', 'error');
+            showToast('Próximamente disponible', 'error');
         });
-        
-        // NO agregar ripple effect - comentado para evitar el bug
-        // Primary buttons ripple
-        // document.querySelectorAll('.btn-primary, .btn-recharge, .amount-btn').forEach(button => {
-        //     button.addEventListener('click', createRipple);
-        // });
         
         // Global events
         document.addEventListener('mousemove', handleMouseMove);
@@ -928,17 +891,9 @@
         }
     }
 
-    function clearSession() {
-        localStorage.clear();
-        location.reload();
-    }
-
-    // Exponer función global para debug
-    window.clearRecargaSession = clearSession;
-
     function init() {
-        console.log('%c🚀 Plataforma de Recarga', 'color: #FF4D00; font-size: 24px; font-weight: bold;');
-        console.log('%cDesarrollado con ❤️', 'color: #00D4AA; font-size: 14px;');
+        console.log('%c🚀 RecargaPlus', 'color: #0088CC; font-size: 24px; font-weight: bold;');
+        console.log('%cPlataforma Argentina de Recargas', 'color: #00A859; font-size: 14px;');
         
         initElements();
         attachEventListeners();

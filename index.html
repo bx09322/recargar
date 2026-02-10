@@ -3,147 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma de Recarga</title>
+    <meta name="description" content="RecargaPlus - Plataforma Argentina de Recargas de Celular y Servicios">
+    <title>RecargaPlus - Recargas de Celular y Servicios</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* Critical CSS para evitar flash */
-        body {
-            margin: 0;
-            padding: 0;
-            background: #0A0E27;
-            font-family: 'DM Sans', sans-serif;
-            color: #FFFFFF;
-        }
-        .screen {
-            display: none;
-            min-height: 100vh;
-        }
-        .screen.active {
-            display: block;
-        }
-        #loginScreen.active {
-            display: flex !important;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Login Screen -->
-    <div id="loginScreen" class="screen active" style="display: flex !important;">
-        <div class="login-container">
-            <div class="login-header">
-                <div class="logo-section">
-                    <div class="logo-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h1>Recarga<span>Plus</span></h1>
-                </div>
-                <p class="tagline">Transacciones seguras en tiempo real</p>
-            </div>
-
-            <form id="loginForm" class="login-form">
-                <div class="form-group">
-                    <label for="username">Usuario</label>
-                    <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required autocomplete="username">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required autocomplete="current-password">
-                        <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
-                            <svg class="eye-open" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <svg class="eye-closed" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="form-options">
-                    <label class="checkbox-container">
-                        <input type="checkbox" id="remember">
-                        <span>Recordarme</span>
-                    </label>
-                    <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
-                </div>
-
-                <button type="submit" class="btn-primary">
-                    <span>Iniciar Sesión</span>
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-
-                <div class="divider">
-                    <span>o continúa con</span>
-                </div>
-
-                <div class="social-login">
-                    <button type="button" class="btn-social" aria-label="Iniciar con Google">
-                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                        </svg>
-                    </button>
-                    <button type="button" class="btn-social" aria-label="Iniciar con Facebook">
-                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </button>
-                    <button type="button" class="btn-social" aria-label="Iniciar con Twitter">
-                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                        </svg>
-                    </button>
-                </div>
-
-                <p class="signup-link">¿No tienes cuenta? <a href="#">Regístrate aquí</a></p>
-            </form>
-
-            <div class="login-features">
-                <div class="feature">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Seguro</span>
-                </div>
-                <div class="feature">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>24/7</span>
-                </div>
-                <div class="feature">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Instantáneo</span>
-                </div>
-            </div>
-        </div>
-
+    <!-- ===========================================
+         PANTALLA DE LOGIN
+    =========================================== -->
+    <div id="loginScreen" class="screen active">
         <div class="login-background">
             <div class="bg-gradient"></div>
             <div class="bg-pattern"></div>
@@ -154,32 +29,146 @@
                 <div class="shape shape-4"></div>
             </div>
         </div>
+        
+        <div class="login-container">
+            <div class="login-header">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <h1>Recarga<span>Plus</span></h1>
+                <p class="tagline">Tu plataforma de confianza para recargas</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <input type="text" id="username" name="username" placeholder="Ingresá tu usuario" required autocomplete="username">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <input type="password" id="password" name="password" placeholder="Ingresá tu contraseña" required minlength="6" autocomplete="current-password">
+                        <button type="button" class="toggle-password">
+                            <svg class="eye-open" viewBox="0 0 24 24" fill="none">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg class="eye-closed" viewBox="0 0 24 24" fill="none">
+                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="remember">
+                        Recordarme
+                    </label>
+                    <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <button type="submit" class="btn-primary">
+                    <span>Iniciar Sesión</span>
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </form>
+            
+            <div class="divider">o continuar con</div>
+            
+            <div class="social-login">
+                <button type="button" class="btn-social">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                </button>
+                <button type="button" class="btn-social">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </button>
+                <button type="button" class="btn-social">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <p class="signup-link">¿No tenés cuenta? <a href="#">Registrate aquí</a></p>
+            
+            <div class="login-features">
+                <div class="feature">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Seguro</span>
+                </div>
+                <div class="feature">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Rápido</span>
+                </div>
+                <div class="feature">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Confiable</span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Dashboard Screen -->
-    <div id="dashboardScreen" class="screen" style="display: none !important;">
+    <!-- ===========================================
+         PANTALLA DE DASHBOARD
+    =========================================== -->
+    <div id="dashboardScreen" class="screen">
         <header class="dashboard-header">
             <div class="header-content">
                 <div class="header-left">
                     <div class="logo-small">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 24 24" fill="none">
                             <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
                     <h2>RecargaPlus</h2>
                 </div>
+                
                 <div class="header-right">
                     <div class="status-badge">
-                        <span class="status-dot"></span>
+                        <div class="status-dot"></div>
                         <span>En línea</span>
                     </div>
+                    
                     <div class="user-menu">
-                        <button class="user-avatar" aria-label="Usuario">
-                            <span id="userInitials">U</span>
-                        </button>
-                        <button class="btn-logout" id="logoutBtn">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <div class="user-avatar" id="userInitials">US</div>
+                        <button type="button" class="btn-logout" id="logoutBtn">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="16 17 21 12 16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                             <span>Salir</span>
                         </button>
@@ -187,172 +176,165 @@
                 </div>
             </div>
         </header>
-
+        
         <main class="dashboard-main">
             <div class="dashboard-container">
                 <div class="platform-header">
-                    <h1>Plataforma de Recarga</h1>
-                    <p class="subtitle">Transacciones seguras en tiempo real</p>
+                    <h1>Servicios Disponibles</h1>
+                    <p class="subtitle">Seleccioná el servicio que querés recargar</p>
                 </div>
-
-                <div class="services-grid" id="servicesGrid">
+                
+                <div id="servicesGrid" class="services-grid">
                     <!-- Claro -->
                     <div class="service-card" data-service="claro">
                         <div class="service-header">
-                            <div class="service-logo claro-logo">
-                                <span>Claro</span>
-                            </div>
+                            <div class="service-logo claro-logo">Claro</div>
                         </div>
                         <div class="service-content">
                             <h3>Claro</h3>
-                            <p>Recargas instantáneas</p>
+                            <p>Recargas de celular y datos</p>
                         </div>
-                        <button class="btn-recharge">
+                        <button type="button" class="btn-recharge">
                             <span>Recargar</span>
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
                     </div>
-
+                    
                     <!-- Personal -->
                     <div class="service-card" data-service="personal">
                         <div class="service-header">
-                            <div class="service-logo personal-logo">
-                                <span>Personal</span>
-                            </div>
+                            <div class="service-logo personal-logo">Personal</div>
                         </div>
                         <div class="service-content">
                             <h3>Personal</h3>
-                            <p>Recargas instantáneas</p>
+                            <p>Recargas de celular y datos</p>
                         </div>
-                        <button class="btn-recharge">
+                        <button type="button" class="btn-recharge">
                             <span>Recargar</span>
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
                     </div>
-
+                    
                     <!-- Movistar -->
                     <div class="service-card" data-service="movistar">
                         <div class="service-header">
-                            <div class="service-logo movistar-logo">
-                                <span>M</span>
-                            </div>
+                            <div class="service-logo movistar-logo">M</div>
                         </div>
                         <div class="service-content">
                             <h3>Movistar</h3>
-                            <p>Recargas instantáneas</p>
+                            <p>Recargas de celular y datos</p>
                         </div>
-                        <button class="btn-recharge">
+                        <button type="button" class="btn-recharge">
                             <span>Recargar</span>
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
                     </div>
-
+                    
                     <!-- Tuenti -->
                     <div class="service-card" data-service="tuenti">
                         <div class="service-header">
-                            <div class="service-logo tuenti-logo">
-                                <span>Tuenti</span>
-                            </div>
+                            <div class="service-logo tuenti-logo">Tuenti</div>
                         </div>
                         <div class="service-content">
                             <h3>Tuenti</h3>
-                            <p>Recargas instantáneas</p>
+                            <p>Recargas de celular y datos</p>
                         </div>
-                        <button class="btn-recharge">
+                        <button type="button" class="btn-recharge">
                             <span>Recargar</span>
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
                     </div>
-
+                    
                     <!-- SUBE -->
                     <div class="service-card" data-service="sube">
                         <div class="service-header">
-                            <div class="service-logo sube-logo">
-                                <span>SUBE</span>
-                            </div>
+                            <div class="service-logo sube-logo">SUBE</div>
                         </div>
                         <div class="service-content">
                             <h3>SUBE</h3>
-                            <p>Recargas instantáneas</p>
+                            <p>Carga de tarjeta SUBE</p>
                         </div>
-                        <button class="btn-recharge">
+                        <button type="button" class="btn-recharge">
                             <span>Recargar</span>
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
                     </div>
-
+                    
                     <!-- DirecTV -->
                     <div class="service-card" data-service="directv">
                         <div class="service-header">
-                            <div class="service-logo directv-logo">
-                                <span>DirecTV</span>
-                            </div>
+                            <div class="service-logo directv-logo">DirecTV</div>
                         </div>
                         <div class="service-content">
                             <h3>DirecTV</h3>
-                            <p>Recargas instantáneas</p>
+                            <p>Pago de servicio de TV</p>
                         </div>
-                        <button class="btn-recharge">
+                        <button type="button" class="btn-recharge">
                             <span>Recargar</span>
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
                     </div>
-
+                    
                     <!-- Antina -->
                     <div class="service-card" data-service="antina">
                         <div class="service-header">
-                            <div class="service-logo antina-logo">
-                                <span>Antina</span>
-                            </div>
+                            <div class="service-logo antina-logo">Antina</div>
                         </div>
                         <div class="service-content">
                             <h3>Antina</h3>
-                            <p>Recargas instantáneas</p>
+                            <p>Pago de servicios</p>
                         </div>
-                        <button class="btn-recharge">
+                        <button type="button" class="btn-recharge">
                             <span>Recargar</span>
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
                     </div>
                 </div>
-
+                
                 <div class="payment-methods">
-                    <h3>Medios de Pago</h3>
+                    <h3>Métodos de pago aceptados</h3>
                     <div class="payment-icons">
                         <div class="payment-icon">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg viewBox="0 0 24 24" fill="none">
                                 <rect x="1" y="4" width="22" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
                                 <line x1="1" y1="10" x2="23" y2="10" stroke="currentColor" stroke-width="2"/>
                             </svg>
-                            <span>Tarjeta</span>
+                            <span>Tarjetas</span>
                         </div>
                         <div class="payment-icon">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <line x1="2" y1="10" x2="22" y2="10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Débito</span>
+                        </div>
+                        <div class="payment-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Efectivo</span>
+                        </div>
+                        <div class="payment-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 5H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M3 10h18" stroke="currentColor" stroke-width="2"/>
                             </svg>
                             <span>Billetera</span>
-                        </div>
-                        <div class="payment-icon">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span>Banco</span>
                         </div>
                     </div>
                 </div>
@@ -360,12 +342,14 @@
         </main>
     </div>
 
-    <!-- Modal de Recarga -->
+    <!-- ===========================================
+         MODAL DE RECARGA
+    =========================================== -->
     <div id="rechargeModal" class="modal">
         <div class="modal-overlay"></div>
         <div class="modal-content">
-            <button class="modal-close" id="closeModal" aria-label="Cerrar">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button type="button" class="modal-close" id="closeModal">
+                <svg viewBox="0 0 24 24" fill="none">
                     <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
@@ -373,21 +357,20 @@
             
             <div class="modal-header">
                 <div id="modalServiceLogo" class="modal-service-logo"></div>
-                <h2 id="modalServiceName">Servicio</h2>
+                <h2 id="modalServiceName">Recarga</h2>
             </div>
-
+            
             <form id="rechargeForm" class="recharge-form">
-                <!-- Campo dinámico según el servicio -->
-                <div class="form-group" id="serviceNumberGroup">
+                <div class="form-group">
                     <label for="serviceNumber" id="serviceNumberLabel">Número</label>
                     <div class="input-wrapper">
-                        <svg class="input-icon" id="serviceNumberIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg id="serviceNumberIcon" class="input-icon" viewBox="0 0 24 24" fill="none">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <input type="text" id="serviceNumber" placeholder="Ingresa el número" required autocomplete="off">
+                        <input type="text" id="serviceNumber" name="serviceNumber" placeholder="Ej: 1123456789" required>
                     </div>
                 </div>
-
+                
                 <div class="form-group">
                     <label>Monto de recarga</label>
                     <div class="amount-options">
@@ -399,44 +382,47 @@
                         <button type="button" class="amount-btn" data-amount="custom">Otro</button>
                     </div>
                 </div>
-
+                
                 <div class="form-group" id="customAmountGroup" style="display: none;">
                     <label for="customAmount">Monto personalizado</label>
                     <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                            <line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        <input type="number" id="customAmount" placeholder="Ingresa el monto" min="1">
+                        <input type="number" id="customAmount" name="customAmount" placeholder="Ingresá el monto" min="50" max="10000">
                     </div>
                 </div>
-
+                
                 <div class="form-group">
                     <label>Método de pago</label>
                     <div class="payment-selector">
                         <label class="payment-option">
                             <input type="radio" name="payment" value="card" checked>
                             <div class="payment-option-content">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg viewBox="0 0 24 24" fill="none">
                                     <rect x="1" y="4" width="22" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
                                     <line x1="1" y1="10" x2="23" y2="10" stroke="currentColor" stroke-width="2"/>
                                 </svg>
                                 <span>Tarjeta</span>
                             </div>
                         </label>
+                        
                         <label class="payment-option">
                             <input type="radio" name="payment" value="wallet">
                             <div class="payment-option-content">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M19 5H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M3 10h18" stroke="currentColor" stroke-width="2"/>
                                 </svg>
                                 <span>Billetera</span>
                             </div>
                         </label>
+                        
                         <label class="payment-option">
                             <input type="radio" name="payment" value="bank">
                             <div class="payment-option-content">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg viewBox="0 0 24 24" fill="none">
                                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     <polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -445,41 +431,40 @@
                         </label>
                     </div>
                 </div>
-
+                
                 <div class="form-summary">
                     <div class="summary-row">
                         <span>Monto:</span>
                         <span id="summaryAmount">$0</span>
                     </div>
                     <div class="summary-row">
-                        <span>Comisión:</span>
+                        <span>Comisión (2%):</span>
                         <span id="summaryFee">$0</span>
                     </div>
                     <div class="summary-row total">
-                        <span>Total:</span>
+                        <span>Total a pagar:</span>
                         <span id="summaryTotal">$0</span>
                     </div>
                 </div>
-
+                
                 <button type="submit" class="btn-primary btn-full">
-                    <span>Confirmar Recarga</span>
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <span>Continuar al pago</span>
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Toast de notificación -->
-    <div id="toast" class="toast"></div>
-
-    <!-- Modal de Pasarela de Pago - Tarjeta -->
+    <!-- ===========================================
+         MODAL DE PASARELA - TARJETA
+    =========================================== -->
     <div id="paymentGatewayModal" class="modal">
         <div class="modal-overlay"></div>
         <div class="modal-content payment-gateway-content">
-            <button class="modal-close" id="closePaymentGateway" aria-label="Cerrar">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button type="button" class="modal-close" id="closePaymentGateway">
+                <svg viewBox="0 0 24 24" fill="none">
                     <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
@@ -487,78 +472,75 @@
             
             <div class="payment-gateway-header">
                 <div class="payment-lock-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
                 <h2>Pago con Tarjeta</h2>
-                <p class="payment-subtitle">Completa tus datos para finalizar</p>
+                <p class="payment-subtitle">Completá los datos de tu tarjeta</p>
             </div>
-
+            
             <form id="paymentGatewayForm" class="payment-gateway-form">
-                <!-- Número de Tarjeta -->
                 <div class="form-group">
                     <label for="cardNumber">Número de tarjeta</label>
                     <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
                             <rect x="1" y="4" width="22" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
                             <line x1="1" y1="10" x2="23" y2="10" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required autocomplete="cc-number" maxlength="19">
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
                     </div>
                 </div>
-
-                <!-- Fecha de Expiración y CVV -->
+                
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="expiryDate">Fecha de expiración</label>
+                        <label for="expiryDate">Vencimiento</label>
                         <div class="input-wrapper">
-                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none">
                                 <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                 <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
                             </svg>
-                            <input type="text" id="expiryDate" placeholder="MM/AA" required autocomplete="cc-exp" maxlength="5">
+                            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/AA" maxlength="5" required>
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
                         <label for="cvv">CVV</label>
                         <div class="input-wrapper">
-                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none">
                                 <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
                             </svg>
-                            <input type="text" id="cvv" placeholder="123" required autocomplete="cc-csc" maxlength="4">
+                            <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" required>
                         </div>
                     </div>
                 </div>
-
-                <!-- DNI -->
+                
                 <div class="form-group">
                     <label for="dni">DNI</label>
                     <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <input type="text" id="dni" placeholder="12345678" required autocomplete="off" maxlength="10">
+                        <input type="text" id="dni" name="dni" placeholder="12345678" maxlength="8" required>
                     </div>
                 </div>
-
-                <!-- Email -->
+                
                 <div class="form-group">
                     <label for="email">Correo electrónico</label>
                     <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
                             <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <input type="email" id="email" placeholder="tu@email.com" required autocomplete="email">
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
                     </div>
                 </div>
-
-                <!-- Resumen de pago -->
+                
                 <div class="payment-summary-box">
                     <div class="summary-row">
                         <span>Servicio:</span>
@@ -569,88 +551,113 @@
                         <span id="paymentAmount">$0</span>
                     </div>
                     <div class="summary-row total">
-                        <span>Total a pagar:</span>
+                        <span>Total:</span>
                         <span id="paymentTotal">$0</span>
                     </div>
                 </div>
-
+                
                 <button type="submit" class="btn-primary btn-full">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <span>Confirmar Pago</span>
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+                
+                <div class="payment-security-note">
+                    <svg viewBox="0 0 24 24" fill="none">
                         <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
                         <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
                     </svg>
-                    <span>Pagar Ahora</span>
-                </button>
-
-                <p class="payment-security-note">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    Tus datos están protegidos con encriptación SSL
-                </p>
+                    <span>Conexión segura SSL. Tus datos están protegidos.</span>
+                </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal de Pasarela de Pago - Billetera -->
+    <!-- ===========================================
+         MODAL DE PASARELA - BILLETERA
+    =========================================== -->
     <div id="walletGatewayModal" class="modal">
         <div class="modal-overlay"></div>
         <div class="modal-content payment-gateway-content">
-            <button class="modal-close" id="closeWalletGateway" aria-label="Cerrar">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button type="button" class="modal-close" id="closeWalletGateway">
+                <svg viewBox="0 0 24 24" fill="none">
                     <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </button>
             
             <div class="payment-gateway-header">
-                <div class="payment-lock-icon wallet-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
+                <div class="payment-lock-icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
                 <h2>Pago con Billetera</h2>
-                <p class="payment-subtitle">Completa tus datos para finalizar</p>
+                <p class="payment-subtitle">Completá los datos de tu tarjeta</p>
             </div>
-
+            
             <form id="walletGatewayForm" class="payment-gateway-form">
-                <!-- Email de Billetera -->
                 <div class="form-group">
-                    <label for="walletEmail">Email de tu billetera virtual</label>
+                    <label for="walletCardNumber">Número de tarjeta</label>
                     <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
-                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                            <rect x="1" y="4" width="22" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <input type="email" id="walletEmail" placeholder="tu@email.com" required autocomplete="email">
+                        <input type="text" id="walletCardNumber" name="walletCardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
                     </div>
                 </div>
-
-                <!-- DNI -->
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="walletExpiryDate">Vencimiento</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <input type="text" id="walletExpiryDate" name="walletExpiryDate" placeholder="MM/AA" maxlength="5" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="walletCvv">CVV</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <input type="text" id="walletCvv" name="walletCvv" placeholder="123" maxlength="4" required>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="form-group">
                     <label for="walletDni">DNI</label>
                     <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <input type="text" id="walletDni" placeholder="12345678" required autocomplete="off" maxlength="10">
+                        <input type="text" id="walletDni" name="walletDni" placeholder="12345678" maxlength="8" required>
                     </div>
                 </div>
-
-                <!-- Teléfono -->
+                
                 <div class="form-group">
-                    <label for="walletPhone">Teléfono asociado</label>
+                    <label for="walletEmail">Correo electrónico</label>
                     <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <input type="tel" id="walletPhone" placeholder="1123456789" required autocomplete="tel" maxlength="15">
+                        <input type="email" id="walletEmail" name="walletEmail" placeholder="tu@email.com" required>
                     </div>
                 </div>
-
-                <!-- Resumen de pago -->
+                
                 <div class="payment-summary-box">
                     <div class="summary-row">
                         <span>Servicio:</span>
@@ -661,101 +668,113 @@
                         <span id="walletAmount">$0</span>
                     </div>
                     <div class="summary-row total">
-                        <span>Total a pagar:</span>
+                        <span>Total:</span>
                         <span id="walletTotal">$0</span>
                     </div>
                 </div>
-
+                
                 <button type="submit" class="btn-primary btn-full">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <span>Confirmar Pago</span>
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+                
+                <div class="payment-security-note">
+                    <svg viewBox="0 0 24 24" fill="none">
                         <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
                         <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
                     </svg>
-                    <span>Pagar con Billetera</span>
-                </button>
-
-                <p class="payment-security-note">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    Conexión segura con tu billetera virtual
-                </p>
+                    <span>Conexión segura SSL. Tus datos están protegidos.</span>
+                </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal de Pasarela de Pago - Banco -->
+    <!-- ===========================================
+         MODAL DE PASARELA - BANCO
+    =========================================== -->
     <div id="bankGatewayModal" class="modal">
         <div class="modal-overlay"></div>
         <div class="modal-content payment-gateway-content">
-            <button class="modal-close" id="closeBankGateway" aria-label="Cerrar">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button type="button" class="modal-close" id="closeBankGateway">
+                <svg viewBox="0 0 24 24" fill="none">
                     <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </button>
             
             <div class="payment-gateway-header">
-                <div class="payment-lock-icon bank-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <div class="payment-lock-icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <h2>Transferencia Bancaria</h2>
-                <p class="payment-subtitle">Completa tus datos para finalizar</p>
+                <h2>Pago con Banco</h2>
+                <p class="payment-subtitle">Completá los datos de tu tarjeta</p>
             </div>
-
+            
             <form id="bankGatewayForm" class="payment-gateway-form">
-                <!-- CBU/CVU -->
                 <div class="form-group">
-                    <label for="cbuCvu">CBU / CVU</label>
+                    <label for="bankCardNumber">Número de tarjeta</label>
                     <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <input type="text" id="cbuCvu" placeholder="0000003100010234567890" required autocomplete="off" maxlength="22">
-                    </div>
-                </div>
-
-                <!-- Titular -->
-                <div class="form-group">
-                    <label for="accountHolder">Titular de la cuenta</label>
-                    <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <input type="text" id="accountHolder" placeholder="Juan Pérez" required autocomplete="name">
-                    </div>
-                </div>
-
-                <!-- DNI -->
-                <div class="form-group">
-                    <label for="bankDni">DNI del titular</label>
-                    <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
                             <rect x="1" y="4" width="22" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
                             <line x1="1" y1="10" x2="23" y2="10" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <input type="text" id="bankDni" placeholder="12345678" required autocomplete="off" maxlength="10">
+                        <input type="text" id="bankCardNumber" name="bankCardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
                     </div>
                 </div>
-
-                <!-- Email -->
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bankExpiryDate">Vencimiento</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <input type="text" id="bankExpiryDate" name="bankExpiryDate" placeholder="MM/AA" maxlength="5" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bankCvv">CVV</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <input type="text" id="bankCvv" name="bankCvv" placeholder="123" maxlength="4" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bankDni">DNI</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <input type="text" id="bankDni" name="bankDni" placeholder="12345678" maxlength="8" required>
+                    </div>
+                </div>
+                
                 <div class="form-group">
                     <label for="bankEmail">Correo electrónico</label>
                     <div class="input-wrapper">
-                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
                             <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <input type="email" id="bankEmail" placeholder="tu@email.com" required autocomplete="email">
+                        <input type="email" id="bankEmail" name="bankEmail" placeholder="tu@email.com" required>
                     </div>
                 </div>
-
-                <!-- Resumen de pago -->
+                
                 <div class="payment-summary-box">
                     <div class="summary-row">
                         <span>Servicio:</span>
@@ -766,29 +785,35 @@
                         <span id="bankAmount">$0</span>
                     </div>
                     <div class="summary-row total">
-                        <span>Total a pagar:</span>
+                        <span>Total:</span>
                         <span id="bankTotal">$0</span>
                     </div>
                 </div>
-
+                
                 <button type="submit" class="btn-primary btn-full">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <polyline points="9 22 9 12 15 12 15 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Confirmar Transferencia</span>
-                </button>
-
-                <p class="payment-security-note">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <span>Confirmar Pago</span>
+                    <svg viewBox="0 0 24 24" fill="none">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
                     </svg>
-                    Transferencia segura entre cuentas bancarias
-                </p>
+                </button>
+                
+                <div class="payment-security-note">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Conexión segura SSL. Tus datos están protegidos.</span>
+                </div>
             </form>
         </div>
     </div>
 
+    <!-- ===========================================
+         TOAST DE NOTIFICACIONES
+    =========================================== -->
+    <div id="toast" class="toast"></div>
+
+    <!-- JavaScript -->
     <script src="javascript/main.js"></script>
 </body>
 </html>
